@@ -27,7 +27,7 @@ class NaverShip
         $this->snoopy->host = 'search.naver.com';
         $this->snoopy->fetch($this->naverPassKeyURL);
         $cookie = $this->snoopy->setcookies();
-        preg_match('/passportKey : "([^"]*)"/', $cookie->results, $passKey);
+        preg_match('/passportKey": "(.*?)"/', $cookie->results, $passKey);
 
         $this->naverPassCookie = $cookie->cookies;
         $this->naverPassKey    = $passKey[1];
